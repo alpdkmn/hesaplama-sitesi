@@ -5,7 +5,7 @@ import ResultBox from "@/components/form/ResultBox";
 import FormBox from "@/components/form/FormBox";
 import React, { useState } from "react";
 import { calculateMinimumPayment } from "./utils";
-import { validateRequired } from "@/lib/validation/validationRequired";
+import validateRequired from "@/lib/validation/validateRequired";
 import FieldRenderer from "@/components/form/FieldRenderer";
 import CalculatorForm from "@/components/form/CalculatorForm";
 

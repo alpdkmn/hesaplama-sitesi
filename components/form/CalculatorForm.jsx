@@ -1,27 +1,35 @@
-import { useEffect } from "react";
+"use client";
+
+import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import { useCalculatorForm } from "../../hooks/useCalculatorForm";
-
 import FormBox from "@/components/form/FormBox";
 import PageHeader from "@/components/form/PageHeader";
 import ResultBox from "@/components/form/ResultBox";
 import FieldRenderer from "@/components/form/FieldRenderer";
 import CalculatorActions from "@/components/form/CalculatorActions";
 import { useTheme } from "@mui/material/styles";
+import { Snackbar, Alert } from "@mui/material";
+
 export default function CalculatorForm({
   title,
   description,
   descriptionResolver,
   fields,
   initialValues,
+  validate,
   calculate,
   extraControls,
 }) {
-  const { formData, result, handleChange, submit, reset } = useCalculatorForm({
-    initialValues,
-    calculate,
-  });
+  const { formData, result, handleChange, submit, reset, error } =
+    useCalculatorForm({
+      initialValues,
+      validate,
+      calculate,
+    });
+
   const theme = useTheme();
+
   const resolvedFields =
     typeof fields === "function" ? fields(formData) : fields;
 
@@ -29,6 +37,15 @@ export default function CalculatorForm({
     typeof descriptionResolver === "function"
       ? descriptionResolver(formData)
       : description;
+
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (error) {
+      setOpen(true);
+    }
+  }, [error?.id]);
+
   return (
     <Box
       sx={{
@@ -53,7 +70,13 @@ export default function CalculatorForm({
             mt: 3,
           }}
         >
-          <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 2,
+            }}
+          >
             {resolvedFields.map((field) => (
               <FieldRenderer
                 key={field.name}
@@ -69,6 +92,20 @@ export default function CalculatorForm({
           <ResultBox result={result} />
         </Box>
       </FormBox>
+
+      <Snackbar
+        open={open}
+        autoHideDuration={3000}
+        onClose={() => setOpen(false)}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "center",
+        }}
+      >
+        <Alert severity="error" variant="filled">
+          {error?.message}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 }

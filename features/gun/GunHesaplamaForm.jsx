@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PageHeader from "@/components/form/PageHeader";
 import ResultBox from "@/components/form/ResultBox";
 import FormBox from "@/components/form/FormBox";
-import { validateRequired } from "@/lib/validation/validationRequired";
+import validateRequired from "@/lib/validation/validateRequired";
 import FieldRenderer from "@/components/form/FieldRenderer";
 import { useTheme } from "@mui/material/styles";
 import {
@@ -13,6 +13,8 @@ import {
   Paper,
   ToggleButton,
   ToggleButtonGroup,
+  Snackbar,
+  Alert,
 } from "@mui/material";
 
 import { calculateGun } from "./utils";
@@ -62,21 +64,42 @@ function GunHesaplamaForm() {
   });
 
   const [result, setResult] = useState(null);
+  const [error, setError] = useState(null);
+  const [open, setOpen] = useState(false);
+
   const theme = useTheme();
   // aktif hesaplama tipine göre alanlar
   const requiredFields = requiredFieldsMap[formData.type];
 
+  useEffect(() => {
+    if (error) {
+      setOpen(true);
+    }
+  }, [error?.id]);
   const handleChange = (name, value) => {
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
+
+    if (error) {
+      setError(null);
+    }
   };
 
   const hesapla = () => {
     const isValid = validateRequired(formData, requiredFields);
 
-    if (!isValid) return;
+    if (!isValid) {
+      setError({
+        id: Date.now(),
+        message: "Lütfen tüm zorunlu alanları doldurun",
+      });
+
+      return;
+    }
+
+    setError(null);
 
     const resultData = calculateGun(formData);
 
@@ -182,6 +205,19 @@ function GunHesaplamaForm() {
           <ResultBox result={result} />
         </Box>
       </Paper>
+      <Snackbar
+        open={open}
+        autoHideDuration={3000}
+        onClose={() => setOpen(false)}
+        anchorOrigin={{
+          vertical: "top",
+          horizontal: "center",
+        }}
+      >
+        <Alert severity="error" variant="filled">
+          {error?.message}
+        </Alert>
+      </Snackbar>
     </FormBox>
   );
 }

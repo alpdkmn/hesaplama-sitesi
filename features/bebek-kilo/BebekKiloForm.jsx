@@ -9,7 +9,7 @@ import CalculatorActions from "../../components/form/CalculatorActions";
 import CalculatorForm from "@/components/form/CalculatorForm";
 
 import { calculateBabyWeight } from "./utils";
-import { validateRequired } from "@/lib/validation/validationRequired";
+import validateRequired from "@/lib/validation/validateRequired";
 
 const fields = [
   {

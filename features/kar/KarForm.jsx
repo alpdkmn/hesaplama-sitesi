@@ -4,6 +4,7 @@ import { useState } from "react";
 import CalculatorForm from "@/components/form/CalculatorForm";
 import { calculateProfit } from "./utils";
 import { ToggleButtonGroup, ToggleButton, Box } from "@mui/material";
+import validateRequired from "@/lib/validation/validateRequired";
 
 const modeOptions = [
   { label: "Kar Oranı", value: "profitRate" },

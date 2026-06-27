@@ -1,5 +1,6 @@
 import CalculatorForm from "@/components/form/CalculatorForm";
 import { calculateCalorieNeeds } from "./utils";
+import validateRequired from "@/lib/validation/validateRequired";
 
 export const calorieFields = [
   {

@@ -1,5 +1,6 @@
 import CalculatorForm from "@/components/form/CalculatorForm";
 import { calculateHoroscope } from "./utils";
+import validateRequired from "@/lib/validation/validateRequired";
 
 export const months = [
   { value: 1, label: "Ocak" },

@@ -1,5 +1,7 @@
 import CalculatorForm from "@/components/form/CalculatorForm";
 import { calculateInterest } from "./utils";
+import validateRequired from "@/lib/validation/validateRequired";
+
 const fields = [
   {
     name: "amount",

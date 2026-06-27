@@ -1,6 +1,8 @@
 import CalculatorForm from "@/components/form/CalculatorForm";
 import { calculatePercentage } from "./utils";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
+import validateRequired from "@/lib/validation/validateRequired";
+
 function YuzdeForm() {
   return (
     <CalculatorForm

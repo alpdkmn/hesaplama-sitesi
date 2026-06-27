@@ -1,5 +1,6 @@
 import CalculatorForm from "@/components/form/CalculatorForm";
 import { calculateKdv } from "./utils";
+import validateRequired from "@/lib/validation/validateRequired";
 
 const fields = [
   {
@@ -32,6 +33,7 @@ export default function KdvForm({ title }) {
         rate: 20,
         isIncluding: "including",
       }}
+      validate={(formData) => validateRequired(formData, ["price", "rate"])}
       calculate={calculateKdv}
       descriptionResolver={(formData) =>
         formData.isIncluding === "not including"
