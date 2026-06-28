@@ -19,7 +19,7 @@
 
 const palette = {
   primary: {
-    main: "#3B82F6",
+    main: "#4F46E5",
   },
   secondary: {
     main: "#93C5FD",
@@ -33,3 +33,21 @@ const palette = {
     secondary: "#475569",
   },
 };
+// const palette = {
+//   primary: {
+//     main: "#4F46E5",
+//   },
+//   secondary: {
+//     main: "#A5B4FC",
+//   },
+//   background: {
+//     default: "#F6F7FF",
+//     paper: "#FFFFFF",
+//   },
+//   text: {
+//     primary: "#0F172A",
+//     secondary: "#64748B",
+//   },
+// };
+
+export default palette;

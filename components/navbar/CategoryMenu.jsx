@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, MenuItem } from "@mui/material";
+import { Button, MenuItem, Box, useTheme } from "@mui/material";
 import {
   bindHover,
   bindMenu,
@@ -11,12 +11,13 @@ import Link from "next/link";
 import { calculators } from "@/data/calculators";
 
 function CategoryMenu({ category }) {
+  const theme = useTheme();
   // 🔒 Hook HER ZAMAN çalışmalı
   const popupState = usePopupState({
     variant: "popover",
     popupId: category?.slug || "menu",
   });
-
+  console.log(theme.palette.primary.main);
   // 🔒 category yoksa hooktan SONRA çık
   if (!category) return null;
 
@@ -25,7 +26,6 @@ function CategoryMenu({ category }) {
   return (
     <>
       <Button
-        variant="contained"
         {...bindHover(popupState)}
         sx={{
           backgroundColor: "transparent",
@@ -41,7 +41,11 @@ function CategoryMenu({ category }) {
         {category.title}
       </Button>
 
-      <HoverMenu {...bindMenu(popupState)} onMouseLeave={popupState.close}>
+      <HoverMenu
+        {...bindMenu(popupState)}
+        onMouseLeave={popupState.close}
+        disableScrollLock
+      >
         {items.length === 0 ? (
           <MenuItem disabled>Henüz içerik yok</MenuItem>
         ) : (
@@ -61,6 +65,7 @@ function CategoryMenu({ category }) {
                   "&:hover": {
                     backgroundColor: (theme) => theme.palette.primary.main,
                     color: "white",
+                    transform: "translateX(8px)",
                   },
                 }}
               >
