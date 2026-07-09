@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { normalizeFormData } from "@/lib/normalize/normalizeFormData";
 
 export function useCalculatorForm({ initialValues, validate, calculate }) {
   const [formData, setFormData] = useState(initialValues);
@@ -11,22 +12,28 @@ export function useCalculatorForm({ initialValues, validate, calculate }) {
       [name]: value,
     }));
 
-    // input değişince hatayı temizle
     if (error) setError(null);
   };
 
   const submit = () => {
-    if (validate && !validate(formData)) {
+    const validation = validate(formData);
+
+    // 🔥 FIX: artık object geliyor
+    if (!validation.isValid) {
       setError({
         id: Date.now(),
-        message: "Lütfen tüm zorunlu alanları doldurun",
+        message: "Hatalı giriş",
+        errors: validation.errors,
       });
+
       setResult(null);
       return;
     }
 
-    setError(null);
-    setResult(calculate(formData));
+    const normalized = normalizeFormData(formData);
+    const calcResult = calculate(normalized);
+
+    setResult(calcResult);
   };
 
   const reset = () => {

@@ -44,6 +44,9 @@ function FaizForm({ title }) {
         month: "",
         interestType: "simple",
       }}
+      validate={(formData) =>
+        validateRequired(formData, ["amount", "rate", "month"])
+      }
       calculate={calculateInterest}
       descriptionResolver={(formData) =>
         formData.interestType === "simple"

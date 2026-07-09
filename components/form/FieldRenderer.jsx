@@ -10,7 +10,7 @@ import {
   MenuItem,
 } from "@mui/material";
 
-function FieldRenderer({ field, value, onChange }) {
+function FieldRenderer({ field, value, onChange, error }) {
   switch (field.type) {
     case "text":
     case "number":
@@ -21,6 +21,8 @@ function FieldRenderer({ field, value, onChange }) {
           value={value}
           onChange={(e) => onChange(field.name, e.target.value)}
           fullWidth
+          error={!!error}
+          helperText={error}
         />
       );
 
@@ -41,10 +43,12 @@ function FieldRenderer({ field, value, onChange }) {
           ))}
         </RadioGroup>
       );
+
     case "select":
       return (
-        <FormControl fullWidth>
+        <FormControl fullWidth error={!!error}>
           <InputLabel>{field.label}</InputLabel>
+
           <Select
             value={value || ""}
             label={field.label}
@@ -67,6 +71,7 @@ function FieldRenderer({ field, value, onChange }) {
           </Select>
         </FormControl>
       );
+
     case "date":
       return (
         <TextField
@@ -75,11 +80,14 @@ function FieldRenderer({ field, value, onChange }) {
           value={value || ""}
           onChange={(e) => onChange(field.name, e.target.value)}
           fullWidth
+          error={!!error}
+          helperText={error}
           slotProps={{
             inputLabel: { shrink: true },
           }}
         />
       );
+
     case "checkbox":
       return (
         <FormControlLabel

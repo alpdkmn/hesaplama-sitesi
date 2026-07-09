@@ -83,6 +83,7 @@ export default function CalculatorForm({
                 field={field}
                 value={formData[field.name]}
                 onChange={handleChange}
+                error={error?.errors?.[field.name]}
               />
             ))}
 

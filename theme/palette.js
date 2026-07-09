@@ -22,7 +22,7 @@ const palette = {
     main: "#4F46E5",
   },
   secondary: {
-    main: "#93C5FD",
+    main: "#A5B4FC",
   },
   background: {
     default: "#F5F9FF",

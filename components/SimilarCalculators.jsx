@@ -1,5 +1,11 @@
 "use client";
-import { List, ListItemButton, ListItemText, Paper } from "@mui/material";
+import {
+  List,
+  ListItemButton,
+  ListItemText,
+  Paper,
+  Divider,
+} from "@mui/material";
 import React from "react";
 import { calculators } from "@/data/calculators";
 import { usePathname } from "next/navigation";
@@ -23,6 +29,7 @@ function SimilarCalculators() {
     >
       <List sx={{ p: 2 }}>
         <ListItemText primary="Benzer Araçlar" />
+        <Divider />
 
         {related.map((item) => (
           <ListItemButton key={item.id} component="a" href={item.path}>

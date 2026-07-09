@@ -21,6 +21,7 @@ function KrediKartiAsgariForm({ title }) {
       fields={fields}
       initialValues={{ debt: "", limit: "" }}
       calculate={calculateMinimumPayment}
+      validate={(formData) => validateRequired(formData, ["debt", "limit"])}
       description="Toplam borcunuza ve kart limitinize göre ödemeniz gereken asgari tutarı anında hesaplayın."
     />
   );

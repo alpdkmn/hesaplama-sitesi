@@ -31,7 +31,8 @@
     "**/*.mts",
     "app/finans/faiz-hesaplama/page.jsx",
     "app/finans/kdv-hesaplama/page.jsx",
-    "app/ThemeRegistry.jsx"
+    "app/ThemeRegistry.jsx",
+    "app/layout.jsx"
   ],
   "exclude": ["node_modules"]
 }

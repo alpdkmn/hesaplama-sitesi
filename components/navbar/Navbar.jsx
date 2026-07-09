@@ -32,8 +32,9 @@ import CategoryMenu from "./CategoryMenu";
 function Navbar() {
   const theme = useTheme();
 
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"), {
+    noSsr: true,
+  });
   const [open, setOpen] = useState(false);
 
   return (

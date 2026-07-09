@@ -35,6 +35,14 @@ function FinaldenForm({ title }) {
         finalOrani: 60,
         gecmeNotu: "",
       }}
+      validate={(formData) =>
+        validateRequired(formData, [
+          "vize",
+          "vizeOrani",
+          "finalOrani",
+          "gecmeNotu",
+        ])
+      }
       calculate={calculateFinalRequired}
       description="Vize ve final notlarınıza göre finalden kaç almanız gerektiğini anında hesaplayın."
     />
