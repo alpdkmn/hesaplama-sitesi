@@ -68,6 +68,13 @@ function BabyWeightForm({ title }) {
       title={title}
       fields={filteredFields}
       initialValues={formData}
+      validate={(formData) => {
+        if (formData.mode === "pregnancy") {
+          return validateRequired(formData, ["gender", "week"]);
+        }
+
+        return validateRequired(formData, ["gender", "month", "weight"]);
+      }}
       calculate={calculateBabyWeight}
       onFormDataChange={setFormData}
       descriptionResolver={(formData) => {

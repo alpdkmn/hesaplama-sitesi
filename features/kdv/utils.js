@@ -24,17 +24,17 @@ export function calculateKdv({ price, rate, isIncluding }) {
       {
         key: "total",
         label: "Toplam tutar",
-        value: total,
+        value: format(total),
       },
       {
         key: "kdv",
         label: "KDV tutarı",
-        value: kdv,
+        value: format(kdv),
       },
       {
         key: "net",
         label: "Net tutar",
-        value: net,
+        value: format(net),
       },
     ],
     meta: [],

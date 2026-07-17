@@ -4,7 +4,8 @@ import typography from "./typography";
 import shape from "./shape";
 import spacing from "./spacing";
 import button from "./button";
-import effects from "./effects";
+import { getEffects } from "./effects";
+const effects = getEffects(palette);
 
 export const getTheme = () =>
   createTheme({

@@ -53,6 +53,12 @@ export default function KarForm() {
       title={page.title}
       description={page.desc}
       calculate={calculateProfit}
+      validate={(formData) =>
+        validateRequired(
+          formData,
+          fields.map((field) => field.name),
+        )
+      }
       initialValues={{
         purchasePrice: "",
         salePrice: "",

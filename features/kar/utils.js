@@ -1,3 +1,5 @@
+import { formatCurrency } from "@/lib/format";
+
 export function calculateProfit({
   purchasePrice,
   salePrice,
@@ -5,10 +7,10 @@ export function calculateProfit({
   mode,
 }) {
   purchasePrice = parseFloat(purchasePrice);
-
   salePrice = parseFloat(salePrice);
-
   profitPercent = parseFloat(profitPercent);
+
+  const format = (v) => formatCurrency(v);
 
   let result = 0;
 
@@ -22,7 +24,7 @@ export function calculateProfit({
           {
             key: "profitRate",
             label: "Kar Oranı",
-            value: `%${result.toFixed(2)}`,
+            value: `%${format(result)}`,
           },
         ],
       };
@@ -36,7 +38,7 @@ export function calculateProfit({
           {
             key: "salePrice",
             label: "Satış Fiyatı",
-            value: `${result.toFixed(2)} ₺`,
+            value: `${format(result)} ₺`,
           },
         ],
       };
@@ -50,7 +52,7 @@ export function calculateProfit({
           {
             key: "buyPrice",
             label: "Alış Fiyatı",
-            value: `${result.toFixed(2)} ₺`,
+            value: `${format(result)} ₺`,
           },
         ],
       };

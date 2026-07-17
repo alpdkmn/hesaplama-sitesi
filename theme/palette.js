@@ -1,53 +1,23 @@
-// const palette = {
-//   primary: {
-//     main: "#4F46E5",
-//   },
-
-//   secondary: {
-//     main: "#818CF8",
-//   },
-
-//   background: {
-//     default: "#F8FAFC",
-//     paper: "#FFFFFF",
-//   },
-//   text: {
-//     primary: "#0F172A",
-//     secondary: "#475569",
-//   },
-// };
-
 const palette = {
   primary: {
-    main: "#4F46E5",
+    light: "#3E6490",
+    main: "#123D6E",
+    dark: "#0D2D52",
+    buttonText: "#FFFFFF",
   },
   secondary: {
-    main: "#A5B4FC",
+    light: "#6F8FB2",
+    main: "#4D6F97",
+    dark: "#38567A",
   },
   background: {
-    default: "#F5F9FF",
+    default: "#F5F8FC",
     paper: "#FFFFFF",
   },
   text: {
-    primary: "#0F172A",
-    secondary: "#475569",
+    primary: "#102A43",
+    secondary: "#5B6B7F",
   },
 };
-// const palette = {
-//   primary: {
-//     main: "#4F46E5",
-//   },
-//   secondary: {
-//     main: "#A5B4FC",
-//   },
-//   background: {
-//     default: "#F6F7FF",
-//     paper: "#FFFFFF",
-//   },
-//   text: {
-//     primary: "#0F172A",
-//     secondary: "#64748B",
-//   },
-// };
 
 export default palette;

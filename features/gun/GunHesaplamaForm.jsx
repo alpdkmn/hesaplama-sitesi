@@ -88,9 +88,9 @@ function GunHesaplamaForm() {
   };
 
   const hesapla = () => {
-    const isValid = validateRequired(formData, requiredFields);
+    const validation = validateRequired(formData, requiredFields);
 
-    if (!isValid) {
+    if (!validation.isValid) {
       setError({
         id: Date.now(),
         message: "Lütfen tüm zorunlu alanları doldurun",

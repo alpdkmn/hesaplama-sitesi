@@ -12,6 +12,7 @@ function YuzdeForm() {
         b: "",
         type: "percentOf",
       }}
+      validate={(formData) => validateRequired(formData, ["a", "b"])}
       calculate={calculatePercentage}
       descriptionResolver={(formData) => {
         switch (formData.type) {

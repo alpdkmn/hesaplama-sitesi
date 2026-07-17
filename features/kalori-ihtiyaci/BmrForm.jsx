@@ -62,6 +62,15 @@ function BmrForm({ title }) {
         height: "",
         weight: "",
       }}
+      validate={(formData) =>
+        validateRequired(formData, [
+          "gender",
+          "age",
+          "height",
+          "weight",
+          "activity",
+        ])
+      }
       calculate={calculateCalorieNeeds}
       description="Cinsiyet, yaş, boy, kilo ve aktivite bilgilerinizi girerek günlük kalori ihtiyacınızı hesaplayın. "
     />

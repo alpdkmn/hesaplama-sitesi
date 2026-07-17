@@ -39,6 +39,9 @@ function IdealKiloForm({ title }) {
         height: "",
         weight: "",
       }}
+      validate={(formData) =>
+        validateRequired(formData, ["gender", "height", "weight"])
+      }
       calculate={calculateIdealWeight}
       description="Boy ve kilo bilgilerinizi girerek ideal kilonuzu hesaplayın."
     />

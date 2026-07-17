@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 import {
   AppBar,
@@ -45,20 +46,32 @@ function Navbar() {
         width: "100%",
         margin: "auto",
         color: "white",
-        background: (theme) =>
-          `linear-gradient(90deg, ${theme.palette.primary.main}, #ffffff 100%)`,
+        backgroundColor: theme.palette.primary.main,
       }}
     >
-      <Toolbar>
-        {/* LOGO / TITLE */}
-        <Typography
-          sx={{
-            fontFamily: (theme) => theme.typography.fontFamily,
-            fontWeight: 600,
-          }}
-        >
-          Hesaplama Araçları
-        </Typography>
+      <Toolbar sx={{ py: 0 }}>
+        <Box sx={{ ml: 2 }}>
+          <Link
+            href="/anasayfa"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              textDecoration: "none",
+              color: "inherit",
+              gap: 12,
+            }}
+          >
+            <Image
+              src="/logo1.png"
+              alt="Hesaplama Sitesi"
+              width={50}
+              height={49}
+            />
+            <Typography variant="h6" fontWeight={700} sx={{ color: "white" }}>
+              {/* Hesaplama Sitesi */}
+            </Typography>{" "}
+          </Link>
+        </Box>
 
         {/* DESKTOP MENU */}
         {!isMobile && (

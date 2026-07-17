@@ -35,6 +35,9 @@ function VizeFinalForm({ title }) {
         final: "",
         finalOrani: 60,
       }}
+      validate={(formData) =>
+        validateRequired(formData, ["vize", "vizeOrani", "final", "finalOrani"])
+      }
       calculate={calculateVizeFinal}
       description="Vize ve final notlarınızı girerek ders not ortalamanızı hesaplayın."
     />

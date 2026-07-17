@@ -17,7 +17,6 @@ function CategoryMenu({ category }) {
     variant: "popover",
     popupId: category?.slug || "menu",
   });
-  console.log(theme.palette.primary.main);
   // 🔒 category yoksa hooktan SONRA çık
   if (!category) return null;
 
@@ -29,12 +28,13 @@ function CategoryMenu({ category }) {
         {...bindHover(popupState)}
         sx={{
           backgroundColor: "transparent",
-          color: (theme) => theme.palette.primary.main,
+          color: theme.palette.primary.buttonText,
           boxShadow: "none",
+          borderRadius: 0,
 
           "&:hover": {
-            backgroundColor: (theme) => theme.palette.primary.main,
-            color: "white",
+            backgroundColor: theme.palette.secondary.main,
+            color: theme.palette.primary.buttonText,
           },
         }}
       >

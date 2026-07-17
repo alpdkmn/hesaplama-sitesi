@@ -31,6 +31,7 @@ function BurcForm() {
         day: "",
         month: "",
       }}
+      validate={(formData) => validateRequired(formData, ["day", "month"])}
       calculate={calculateHoroscope}
       fields={[
         {

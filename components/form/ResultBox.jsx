@@ -27,7 +27,7 @@ function ResultBox({ result }) {
         result.values.map((item) => (
           <Typography key={item.key}>
             {item.label ? `${item.label}: ` : ""}
-            <strong>{item.value}₺</strong>
+            <strong>{item.value}</strong>
           </Typography>
         ))
       ) : (
