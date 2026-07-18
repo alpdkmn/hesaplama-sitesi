@@ -45,8 +45,7 @@ function Navbar() {
         boxShadow: "none",
         width: "100%",
         margin: "auto",
-        color: "white",
-        backgroundColor: theme.palette.primary.main,
+        backgroundColor: theme.palette.background.paper,
       }}
     >
       <Toolbar sx={{ py: 0 }}>

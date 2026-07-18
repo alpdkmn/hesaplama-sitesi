@@ -28,12 +28,12 @@ function CategoryMenu({ category }) {
         {...bindHover(popupState)}
         sx={{
           backgroundColor: "transparent",
-          color: theme.palette.primary.buttonText,
+          color: theme.palette.secondary.dark,
           boxShadow: "none",
           borderRadius: 0,
 
           "&:hover": {
-            backgroundColor: theme.palette.secondary.main,
+            backgroundColor: theme.palette.primary.dark,
             color: theme.palette.primary.buttonText,
           },
         }}
@@ -45,6 +45,16 @@ function CategoryMenu({ category }) {
         {...bindMenu(popupState)}
         onMouseLeave={popupState.close}
         disableScrollLock
+        slotProps={{
+          paper: {
+            sx: {
+              borderRadius: 0, // Dış menü kutusunun köşelerini sıfırlar
+              "& .MuiMenuItem-root:hover": {
+                borderRadius: 0, // İçindeki öğelerin hover köşelerini sıfırlar
+              },
+            },
+          },
+        }}
       >
         {items.length === 0 ? (
           <MenuItem disabled>Henüz içerik yok</MenuItem>
@@ -56,16 +66,28 @@ function CategoryMenu({ category }) {
                 href={item.path}
                 fullWidth
                 sx={{
+                  position: "relative",
                   justifyContent: "flex-start",
                   textTransform: "none",
                   borderRadius: 0,
 
-                  color: (theme) => theme.palette.primary.main,
-
                   "&:hover": {
-                    backgroundColor: (theme) => theme.palette.primary.main,
-                    color: "white",
-                    transform: "translateX(8px)",
+                    backgroundColor: "transparent",
+                  },
+
+                  "&::after": {
+                    content: '""',
+                    position: "absolute",
+                    left: 0,
+                    bottom: 0,
+                    width: 0,
+                    height: "2px",
+                    backgroundColor: "#123d6e",
+                    transition: "width 0.3s ease",
+                  },
+
+                  "&:hover::after": {
+                    width: "100%",
                   },
                 }}
               >

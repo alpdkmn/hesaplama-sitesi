@@ -20,7 +20,18 @@
 }
 
 body {
-  background: var(--background);
+  /* background: var(--background); */
+  background:
+    radial-gradient(
+      circle at top left,
+      rgba(62, 100, 144, 0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at bottom right,
+      rgba(18, 61, 110, 0.12),
+      transparent 35%
+    ),
+    linear-gradient(180deg, #f5f8fc, #eef4fa);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
