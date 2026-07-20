@@ -1,3 +1,5 @@
+"use client";
+
 import { calculateFinalRequired } from "./utils";
 import CalculatorForm from "@/components/form/CalculatorForm";
 import validateRequired from "@/lib/validation/validateRequired";

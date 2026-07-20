@@ -1,7 +1,13 @@
-export const metaData = {
-  title: "Hesaplama Araçları",
-  description: "Türkiye için en kullanışlı hesaplama araçları",
+import HomeContent from "@/components/home/HomeContent";
+
+export const metadata = {
+  title: {
+    absolute: "Hesaplama Sitesi — Pratik Online Hesaplama Araçları",
+  },
+  description:
+    "KDV, faiz, kalori, yüzde, gün ve daha birçok konu için hızlı ve ücretsiz online hesaplama araçları. Aradığınız hesaplayıcıyı saniyeler içinde bulun.",
 };
+
 export default function Home() {
-  return <div></div>;
+  return <HomeContent />;
 }

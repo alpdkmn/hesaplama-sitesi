@@ -1,8 +1,13 @@
-import { Box, Typography, useTheme } from "@mui/material";
-import { formatCurrency } from "@/lib/format";
+import { Box, Typography, useTheme, alpha } from "@mui/material";
+import CalculateOutlinedIcon from "@mui/icons-material/CalculateOutlined";
 
 function ResultBox({ result }) {
   const theme = useTheme();
+  const primary = theme.palette.primary.main;
+
+  const values = result?.values ?? [];
+  const hasResult = values.length > 0;
+  const [hero, ...rest] = values;
 
   return (
     <Box
@@ -10,30 +15,72 @@ function ResultBox({ result }) {
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: hasResult ? "stretch" : "center",
         p: 3,
-        borderRadius: 3,
-        border: "1px dashed",
+        borderRadius: "14px",
         minHeight: 200,
-        background: "transparent",
-        transition: "all 300ms cubic-bezier(0.4, 0, 0.2, 1)",
-        "&:hover": {
-          transform: "translateY(-4px)",
-          boxShadow: "0 10px 25px rgba(0,0,0,0.12)",
-        },
+        background: hasResult ? alpha(primary, 0.05) : "transparent",
+        border: "1px solid",
+        borderColor: hasResult ? alpha(primary, 0.15) : "divider",
       }}
     >
-      {result?.values?.length > 0 ? (
-        result.values.map((item) => (
-          <Typography key={item.key}>
-            {item.label ? `${item.label}: ` : ""}
-            <strong>{item.value}</strong>
-          </Typography>
-        ))
+      {hasResult ? (
+        <>
+          <Box>
+            {hero.label && (
+              <Typography
+                sx={{ fontSize: 13, color: "text.secondary", mb: 0.5 }}
+              >
+                {hero.label}
+              </Typography>
+            )}
+            <Typography
+              sx={{
+                fontSize: 32,
+                fontWeight: 600,
+                color: primary,
+                lineHeight: 1.15,
+              }}
+            >
+              {hero.value}
+            </Typography>
+          </Box>
+
+          {rest.length > 0 && (
+            <Box
+              sx={{
+                mt: 2,
+                pt: 2,
+                borderTop: "1px solid",
+                borderColor: alpha(primary, 0.12),
+                display: "flex",
+                flexDirection: "column",
+                gap: 1,
+              }}
+            >
+              {rest.map((item) => (
+                <Box
+                  key={item.key}
+                  sx={{ display: "flex", justifyContent: "space-between" }}
+                >
+                  <Typography sx={{ fontSize: 14, color: "text.secondary" }}>
+                    {item.label}
+                  </Typography>
+                  <Typography sx={{ fontSize: 14, color: "text.primary" }}>
+                    {item.value}
+                  </Typography>
+                </Box>
+              ))}
+            </Box>
+          )}
+        </>
       ) : (
-        <Typography color="text.secondary">
-          Değerleri girip hesaplayın
-        </Typography>
+        <Box sx={{ textAlign: "center", color: "text.secondary" }}>
+          <CalculateOutlinedIcon sx={{ fontSize: 32, opacity: 0.35, mb: 1 }} />
+          <Typography color="text.secondary">
+            Değerleri girip hesaplayın
+          </Typography>
+        </Box>
       )}
     </Box>
   );

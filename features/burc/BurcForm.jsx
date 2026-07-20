@@ -1,3 +1,5 @@
+"use client";
+
 import CalculatorForm from "@/components/form/CalculatorForm";
 import { calculateHoroscope } from "./utils";
 import validateRequired from "@/lib/validation/validateRequired";

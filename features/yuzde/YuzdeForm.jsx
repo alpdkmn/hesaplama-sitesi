@@ -1,3 +1,5 @@
+"use client";
+
 import CalculatorForm from "@/components/form/CalculatorForm";
 import { calculatePercentage } from "./utils";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";

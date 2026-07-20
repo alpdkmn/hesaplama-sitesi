@@ -1,24 +1,13 @@
-import { Box, Paper } from "@mui/material";
+import { Box } from "@mui/material";
+import AdUnit from "./AdUnit";
+import { AD_SLOTS } from "@/lib/adsense";
 
+// Masaüstü kenar reklamı — sadece geniş ekranda görünür (layout xs'te gizliyor).
+// Sticky: sayfa kaydırılınca reklam ekranda kalır.
 function SidebarAd() {
   return (
-    <Box
-      sx={{
-        width: 300,
-        border: "1px solid",
-      }}
-    >
-      <Paper
-        sx={{
-          position: "sticky",
-          top: 20,
-          width: "100%",
-          height: 400,
-          p: 2,
-        }}
-      >
-        Reklam
-      </Paper>
+    <Box sx={{ position: "sticky", top: 20, width: 300 }}>
+      <AdUnit slot={AD_SLOTS.sidebar} minHeight={600} />
     </Box>
   );
 }

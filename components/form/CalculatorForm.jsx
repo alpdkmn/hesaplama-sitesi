@@ -50,9 +50,11 @@ export default function CalculatorForm({
     <Box
       sx={{
         p: 4,
-        borderRadius: 4,
-        background: theme.effects.surface,
-        boxShadow: 3,
+        borderRadius: 2,
+        background: theme.palette.background.paper,
+        border: "1px solid",
+        borderColor: "divider",
+        boxShadow: "0 1px 3px rgba(16, 42, 67, 0.06)",
       }}
     >
       <FormBox onSubmit={submit}>
@@ -96,7 +98,7 @@ export default function CalculatorForm({
 
       <Snackbar
         open={open}
-        autoHideDuration={3000}
+        autoHideDuration={2500}
         onClose={() => setOpen(false)}
         anchorOrigin={{
           vertical: "top",

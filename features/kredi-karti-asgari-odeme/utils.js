@@ -38,11 +38,7 @@ export function calculateMinimumPayment({ debt, limit }) {
 
   const minimumPayment = debtNum * (rate / 100);
   const remainingDebt = debtNum - minimumPayment;
-  console.log({
-    minimumPayment,
-    remainingDebt,
-    rate,
-  });
+
   return {
     values: [
       {

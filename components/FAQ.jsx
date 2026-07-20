@@ -9,10 +9,30 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 function FAQ({ items }) {
   if (!items) return null;
 
+  // Google'ın SSS'leri anlaması için yapısal veri (JSON-LD).
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
+  };
+
   return (
     <Box
-      sx={{ mt: 4, mx: "auto", maxWidth: 700, backgroundColor: "transparent" }}
+      sx={{ mt: 4, backgroundColor: "transparent" }}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <Typography variant="h6" fontWeight={600} sx={{ mb: 2, ml: 1 }}>
         Sık Sorulan Sorular
       </Typography>

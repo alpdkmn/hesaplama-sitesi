@@ -1,6 +1,3 @@
-"use client";
-import { Box } from "@mui/material";
-import React from "react";
 import KrediKartiAsgariForm from "../../../features/kredi-karti-asgari-odeme/KrediKartiAsgariForm";
 import { krediKartiAsgariOdemesiContent } from "@/features/kredi-karti-asgari-odeme/content";
 import CalculatorPageLayout from "@/components/layouts/CalculatorPageLayout";
@@ -9,18 +6,19 @@ import FormulaSection from "@/components/FormulaSection";
 import ContentSections from "@/components/ContentSections";
 import FAQ from "@/components/FAQ";
 
-function page() {
+export const metadata = {
+  title: krediKartiAsgariOdemesiContent.title,
+  description: krediKartiAsgariOdemesiContent.description,
+};
+
+export default function KrediKartiAsgariPage() {
   return (
     <CalculatorPageLayout>
       <KrediKartiAsgariForm title={krediKartiAsgariOdemesiContent.title} />
       <MobileAd />
-
-      {/* CONTENT */}
       <FormulaSection data={krediKartiAsgariOdemesiContent.formula} />
       <ContentSections sections={krediKartiAsgariOdemesiContent.sections} />
       <FAQ items={krediKartiAsgariOdemesiContent.faq} />
     </CalculatorPageLayout>
   );
 }
-
-export default page;

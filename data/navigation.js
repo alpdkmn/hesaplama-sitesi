@@ -1,6 +1,3 @@
-import path from "node:path";
-import { title } from "node:process";
-
 export const navigation = [
   { title: "Finans", slug: "finans" },
   { title: "Eğitim", slug: "egitim" },

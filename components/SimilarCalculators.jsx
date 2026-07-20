@@ -27,9 +27,16 @@ function SimilarCalculators() {
 
   if (!current) return null;
 
-  const related = calculators
-    .filter((c) => c && c.path !== pathname && c.category === current.category)
-    .slice(0, 5);
+  // Önce aynı kategorideki benzer araçlar, sonra diğer araçlarla toplam 6'ya tamamla.
+  // Deterministik sıra (SSR/client render'ı eşleşsin diye rastgele yok).
+  const related = [
+    ...calculators.filter(
+      (c) => c && c.path !== pathname && c.category === current.category,
+    ),
+    ...calculators.filter(
+      (c) => c && c.path !== pathname && c.category !== current.category,
+    ),
+  ].slice(0, 8);
 
   if (related.length === 0) return null;
 
@@ -62,7 +69,26 @@ function SimilarCalculators() {
 
       <Divider />
 
-      <List disablePadding>
+      <List
+        disablePadding
+        sx={{
+          maxHeight: 300,
+          overflowY: "auto",
+
+          "&::-webkit-scrollbar": {
+            width: 6,
+          },
+
+          "&::-webkit-scrollbar-thumb": {
+            borderRadius: 10,
+            backgroundColor: "#123D6E",
+          },
+
+          "&::-webkit-scrollbar-track": {
+            backgroundColor: "#F2F4F8",
+          },
+        }}
+      >
         {related.map((item, index) => (
           <Box key={item.id}>
             <ListItemButton
@@ -76,6 +102,20 @@ function SimilarCalculators() {
                 "&:hover": {
                   bgcolor: "action.hover",
                   pl: 3,
+                },
+                "&::after": {
+                  content: '""',
+                  position: "absolute",
+                  left: 0,
+                  bottom: 0,
+                  width: 0,
+                  height: "2px",
+                  backgroundColor: "#123d6e",
+                  transition: "width 0.3s ease",
+                },
+
+                "&:hover::after": {
+                  width: "100%",
                 },
               }}
             >

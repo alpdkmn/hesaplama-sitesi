@@ -30,7 +30,7 @@ function CategoryMenu({ category }) {
           backgroundColor: "transparent",
           color: theme.palette.secondary.dark,
           boxShadow: "none",
-          borderRadius: 0,
+          borderRadius: 1.3,
 
           "&:hover": {
             backgroundColor: theme.palette.primary.dark,
@@ -48,7 +48,7 @@ function CategoryMenu({ category }) {
         slotProps={{
           paper: {
             sx: {
-              borderRadius: 0, // Dış menü kutusunun köşelerini sıfırlar
+              borderRadius: 1.5, // Dış menü kutusunun köşelerini sıfırlar
               "& .MuiMenuItem-root:hover": {
                 borderRadius: 0, // İçindeki öğelerin hover köşelerini sıfırlar
               },

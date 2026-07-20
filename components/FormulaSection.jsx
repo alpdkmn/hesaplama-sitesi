@@ -1,3 +1,5 @@
+"use client";
+
 import { Paper, Typography, Box, useTheme } from "@mui/material";
 import { FcCalculator } from "react-icons/fc";
 
@@ -6,7 +8,7 @@ function FormulaSection({ data }) {
   if (!data) return null;
 
   return (
-    <Paper sx={{ p: 3, mt: 4, borderRadius: 3, maxWidth: 700, mx: "auto" }}>
+    <Paper sx={{ p: 3, mt: 4, borderRadius: 2 }}>
       <Box
         sx={{
           display: "flex",

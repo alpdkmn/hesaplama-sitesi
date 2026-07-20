@@ -51,7 +51,7 @@ function Navbar() {
       <Toolbar sx={{ py: 0 }}>
         <Box sx={{ ml: 2 }}>
           <Link
-            href="/anasayfa"
+            href="/"
             style={{
               display: "flex",
               alignItems: "center",

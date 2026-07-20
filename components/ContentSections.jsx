@@ -1,3 +1,5 @@
+"use client";
+
 import { Paper, Typography, Box, useTheme } from "@mui/material";
 import { FcQuestions } from "react-icons/fc";
 
@@ -16,15 +18,13 @@ function ContentSections({ sections }) {
         },
         justifyContent: "center",
         gap: 3,
-        width: "80%",
-        mx: "auto",
+        width: "100%",
       }}
     >
       <Paper
-        elevation={2}
         sx={{
           p: 3,
-          borderRadius: 4,
+          borderRadius: 2,
           height: "100%",
         }}
       >

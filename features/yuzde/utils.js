@@ -2,7 +2,7 @@ export function calculatePercentage({ type, a, b }) {
   a = Number(a);
   b = Number(b);
 
-  if (isNaN(a) || isNaN(b)) return null;
+  if (isNaN(a) || isNaN(b)) return { values: [] };
 
   let resultValue = 0;
   let suffix = "";
@@ -31,7 +31,7 @@ export function calculatePercentage({ type, a, b }) {
       break;
 
     default:
-      return null;
+      return { values: [] };
   }
 
   return {

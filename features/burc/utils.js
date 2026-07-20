@@ -34,5 +34,13 @@ export function calculateHoroscope({ day, month }) {
     }
   }
 
-  return "Bilinmiyor";
+  return {
+    values: [
+      {
+        key: "burc",
+        label: "Burcunuz",
+        value: "Bilinmiyor",
+      },
+    ],
+  };
 }
