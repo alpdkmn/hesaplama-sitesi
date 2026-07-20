@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import CalculateRoundedIcon from "@mui/icons-material/CalculateRounded";
 
 import {
   AppBar,
@@ -57,18 +57,42 @@ function Navbar() {
               alignItems: "center",
               textDecoration: "none",
               color: "inherit",
-              gap: 12,
+              gap: 10,
             }}
           >
-            <Image
-              src="/logo1.png"
-              alt="Hesaplama Sitesi"
-              width={50}
-              height={49}
-            />
-            <Typography variant="h6" fontWeight={700} sx={{ color: "white" }}>
-              {/* Hesaplama Sitesi */}
-            </Typography>{" "}
+            <Box
+              sx={{
+                width: 38,
+                height: 38,
+                borderRadius: "10px",
+                bgcolor: "primary.main",
+                color: "#fff",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                flexShrink: 0,
+              }}
+            >
+              <CalculateRoundedIcon sx={{ fontSize: 22 }} />
+            </Box>
+
+            <Box sx={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
+              <Typography
+                sx={{
+                  color: "primary.main",
+                  fontWeight: 700,
+                  fontSize: 18,
+                  lineHeight: 1.15,
+                }}
+              >
+                Hesaplama Sitesi
+              </Typography>
+              <Typography
+                sx={{ color: "text.secondary", fontSize: 11, letterSpacing: 0.3 }}
+              >
+                Pratik online araçlar
+              </Typography>
+            </Box>
           </Link>
         </Box>
 
