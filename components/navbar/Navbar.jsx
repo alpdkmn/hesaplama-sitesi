@@ -76,7 +76,9 @@ function Navbar() {
               <CalculateRoundedIcon sx={{ fontSize: 22 }} />
             </Box>
 
-            <Box sx={{ display: "flex", flexDirection: "column", lineHeight: 1 }}>
+            <Box
+              sx={{ display: "flex", flexDirection: "column", lineHeight: 1 }}
+            >
               <Typography
                 sx={{
                   color: "primary.main",
@@ -85,10 +87,14 @@ function Navbar() {
                   lineHeight: 1.15,
                 }}
               >
-                Hesaplama Sitesi
+                Hesaplior.net
               </Typography>
               <Typography
-                sx={{ color: "text.secondary", fontSize: 11, letterSpacing: 0.3 }}
+                sx={{
+                  color: "text.secondary",
+                  fontSize: 11,
+                  letterSpacing: 0.3,
+                }}
               >
                 Pratik online araçlar
               </Typography>
