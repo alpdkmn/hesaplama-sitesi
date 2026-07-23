@@ -87,7 +87,7 @@ function Navbar() {
                   lineHeight: 1.15,
                 }}
               >
-                Hesaplior.net
+                Hesaplior.com
               </Typography>
               <Typography
                 sx={{

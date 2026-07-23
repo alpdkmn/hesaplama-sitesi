@@ -38,13 +38,26 @@ function FAQ({ items }) {
       </Typography>
 
       {items.map((item, index) => (
-        <Accordion key={index}>
+        <Accordion
+          key={index}
+          disableGutters
+          sx={{
+            // MUI'nin açılınca soluklaşan ayraç çizgisini kapat;
+            // yerine hiç solmayan sabit bir üst kenarlık kullan.
+            "&::before": { display: "none" },
+            borderTop: "1px solid",
+            borderColor: "divider",
+            "&:first-of-type": { borderTop: "none" },
+          }}
+        >
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             <Typography fontWeight={500}>{item.question}</Typography>
           </AccordionSummary>
 
           <AccordionDetails>
-            <Typography variant="body2">{item.answer}</Typography>
+            <Typography variant="body2" sx={{ color: "text.secondary" }}>
+              {item.answer}
+            </Typography>
           </AccordionDetails>
         </Accordion>
       ))}

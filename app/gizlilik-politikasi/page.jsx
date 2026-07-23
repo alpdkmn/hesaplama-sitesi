@@ -3,7 +3,7 @@ import { Box, Typography, Link as MuiLink } from "@mui/material";
 export const metadata = {
   title: "Gizlilik Politikası",
   description:
-    "Hesaplama Sitesi gizlilik politikası: topladığımız veriler, çerezler ve üçüncü taraf reklam sağlayıcıları hakkında bilgi.",
+    "Hesaplior.com gizlilik politikası: topladığımız veriler, çerezler ve üçüncü taraf reklam sağlayıcıları hakkında bilgi.",
 };
 
 function Section({ title, children }) {
@@ -34,7 +34,7 @@ export default function GizlilikPolitikasiPage() {
       </Typography>
 
       <Section title="Genel Bilgi">
-        Bu gizlilik politikası, Hesaplama Sitesi&apos;ni ziyaret ettiğinizde
+        Bu gizlilik politikası, Hesaplior.com&apos;i ziyaret ettiğinizde
         hangi bilgilerin toplandığını ve nasıl kullanıldığını açıklar. Siteyi
         kullanarak bu politikayı kabul etmiş olursunuz.
       </Section>

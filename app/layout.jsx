@@ -20,14 +20,14 @@ export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     // Kendi başlığı olmayan sayfalar bunu kullanır.
-    default: "Hesaplama Sitesi — Pratik Online Hesaplama Araçları",
+    default: "Hesaplior.com — Pratik Online Hesaplama Araçları",
     // Kendi başlığı olan sayfalarda %s, o sayfanın başlığıyla değişir.
-    template: "%s | Hesaplama Sitesi",
+    template: "%s | Hesaplior.com",
   },
   description:
     "KDV, faiz, kalori, yüzde ve daha birçok konu için hızlı, ücretsiz online hesaplama araçları.",
   openGraph: {
-    siteName: "Hesaplama Sitesi",
+    siteName: "Hesaplior.com",
     locale: "tr_TR",
     type: "website",
   },
